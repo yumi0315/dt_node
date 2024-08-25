@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>반복문 - 조건문 연습문제</title>
+    <script>
+      // 반복문 안에 조건문이 들어간다.
+      // 연습문제
+      // 1. 1부터 100까지의 합을 출력하시오.
+      let number = 100;
+      let range_sum = (1 + number) * (number / 2);
+
+      // 2. 1부터 100사이의 3의 배수의 갯수를 출력
+      let arr = [...Array(100)].map((_, i) => {
+        return i + 1;
+      });
+      let count = arr.filter((x) => x % 3 == 0).length;
+      console.log(count);
+
+      // 3. 1~10사이의 랜덤수를 10번 발생시켜,
+      //  그중에 가장 큰 수(max)와 가장 작은 수(min)을 출력하시오.
+      let arr2 = [...Array(10)].map(() => Math.floor(Math.random() * 10) + 1);
+      console.log(arr2);
+      let maxNum = Math.max(...arr2);
+      let minNum = Math.min(...arr2);
+      console.log(`가장큰수 ${maxNum}, 가장작은수 ${minNum}`);
+
+      maxNum = arr2[0];
+      minNum = arr2[0];
+      for (let i = 1; i < arr2.length; i++) {
+        if (maxNum < arr2[i]) {
+          maxNum = arr2[i];
+        }
+        if (minNum > arr2[i]) {
+          minNum = arr2[i];
+        }
+      }
+      console.log(`가장큰수 ${maxNum}, 가장작은수 ${minNum}`);
+
+      maxNum = Number.MIN_SAFE_INTEGER;
+      minNum = Number.MAX_SAFE_INTEGER;
+      for (let i = 0; i < 6; i++) {
+        let temp = Math.floor(Math.random() * 10) + 1;
+        if (maxNum < temp) {
+          maxNum = temp;
+        }
+        if (minNum > temp) {
+          minNum = temp;
+        }
+      }
+      console.log(`가장큰수 ${maxNum}, 가장작은수 ${minNum}`);
+
+      // 4. 이중반복문 1부터 100사이의 소수를 출력하시오.
+      //    소수 : 약수가 1과 자신인 수
+      //    약수 : 나누어 떨어지는 수
+      //    10의 약수 : 1, 10, 2, 5
+      //    7의 약수 : 1, 7
+      let decimal_arr = [];
+
+      for (let i = 2; i < 101; i++) {
+        for (let j = 2; j < i + 1; j++) {
+          if (i % j == 0) {
+            if (i == j) {
+              decimal_arr.push(i);
+            } else {
+              break;
+            }
+          }
+        }
+      }
+      console.log(...decimal_arr);
+
+      // 5. 배열 사용, 로또번호 6개(1~45)를 추첨하되
+      //    중복된 수를 추첨하면, 재추첨하는 로직을 넣으시오.
+      //    로또번호 6개를 출력하시오.
+      let arr3 = Array(6);
+      for (let i = 0; i < arr3.length; i++) {
+        let temp = Math.floor(Math.random() * 45) + 1;
+        if (arr3.includes(temp)) {
+          i--;
+          continue;
+        } else {
+          arr3[i] = temp;
+        }
+      }
+      arr3.sort((a, b) => a - b);
+      console.log(...arr3);
+    </script>
+  </head>
+  <body></body>
+</html>

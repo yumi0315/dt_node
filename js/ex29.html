@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>반복문의 레이블 label</title>
+    <script>
+      // 이중반복문에서 break문, continue문의 제어
+      // 레이블로 포문 두단계 탈출
+      loop1: for (let i = 0; i < 5; i++) {
+        loop2: for (let j = 0; j < 5; j++) {
+          if (j > 2) {
+            break loop1;
+          }
+          if (i > 3) {
+            continue loop1; // loop2로 안가고 loop1 반복문으로 감
+          }
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

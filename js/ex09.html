@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JS 연습문제1</title>
+    <script>
+      // 1. prompt함수를 이용하여 사용자로부터 문자열(아라비아숫자(0~9)을 받는다.
+      //    그 문자열을 숫자형으로 변환하고, 그 수에 *2를 해서 콘솔에 출력하시오.
+      const user_input_num = () => {
+        return Number(prompt("아라비아 숫자(0~9)를 입력해주세요."));
+      };
+      let number = user_input_num();
+      console.log(number * 2);
+      // 2. 문제 1번에서 입력받은 숫자를 3으로 나누고 몫과 나머지를 출력하시오.
+      //    10 / 3 = 3, 10 % 3 = 1
+      console.log(Math.floor(number / 3), number % 3);
+      // 3. 입력받은 숫자(백의 자리까지)이 백의 자릿수, 십의 자릿수, 일의 자릿수를 출력하시오.
+      //    ex)"123" => 백의자릿수 : 1, 십의자릿수 : 2, 일의 자릿수 : 3
+      //    Math.floor함수 : 소수점 버림 함수
+      //    Math.fllor(1.23) => 1
+      const transform_number = (num) => {
+        let array = [...String(num)];
+        array = array.map(
+          (val, idx) => `${10 ** (array.length - idx - 1)}의자릿수 : ${val}`
+        );
+        console.log(array.join(", "));
+      };
+      transform_number(number);
+    </script>
+  </head>
+  <body></body>
+</html>

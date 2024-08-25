@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>이중 반복문</title>
+    <script>
+      // 이중 반복문 : 반복문 안에 반복문이 들어감
+      for (let i = 0; i < 5; i++) {
+        console.log("i:" + i);
+        for (let j = 0; j < 5; j++) {
+          console.log(" j:" + j);
+        }
+      }
+      // 구구단 출력하기
+      // 2단 ~ 9단
+      // 각단에서 *1 ~ *9 까지
+      for (let i = 2; i < 10; i++) {
+        for (let j = 1; j < 10; j++) {
+          console.log(`${i} * ${j} = ${i * j}`);
+        }
+        console.log("");
+      }
+
+      // 연습문제
+      // 1. prompt함수를 통해 시작 단수와 끝 단수를 입력받아 구구단출력
+      //    (끝 단수는 시작 단수보다 커야 한다.)
+      //    입력예) 3,9
+      const inputNums = prompt("시작 단수와 끝 단수를 ,로 구분하여 입력하세요.")
+        .replaceAll(" ", "")
+        .split(",")
+        .map(Number);
+
+      for (let i = inputNums[0]; i <= inputNums[1]; i++) {
+        for (let j = 1; j <= 9; j++) {
+          console.log(`${i} * ${j} = ${i * j}`);
+        }
+        console.log("");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

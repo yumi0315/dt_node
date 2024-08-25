@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>2차배열</title>
+    <script>
+      // 1차배열
+      let nums = [10, 20, 30];
+      // 2차배열
+      let nums2D = [
+        [10, 20, 30], // nums2D[0]
+        [40, 50, 60], // nums2D[1]
+        [70, 80, 90], // nums2D[2]
+      ];
+
+      // 연습문제
+      // 1. nums2D의 모든요소에서 최대값을 출력하시오.
+      let maxNum = nums2D.reduce((x, y) => Math.max(...y));
+      console.log(maxNum);
+      // 2. nums2D의 모든 요소의 합을 구하시오.
+      let sumNums = nums2D.reduce(
+        (x, y) => x + y.reduce((x1, y1) => x1 + y1),
+        0
+      );
+      console.log(sumNums);
+      // 3. 학생정보를 담고 있는 2차원 배열을 선언하고,
+      let students = [
+        // 학번, 이름, 영어점수, 나이
+        [1, "홍길동", 70, 20],
+        [2, "변사또", 60, 30],
+        [3, "사임당", 50, 40],
+        [4, "김진사", 90, 50],
+      ];
+      // 영어점수가 가장 높은 학생의 이름을 출력하시오.
+      let heightScoreEng = students.reduce((x, y) => (x[2] > y[2] ? x : y));
+      console.log(heightScoreEng[1]);
+      // 4. 전체학생의 평균 나이를 출력하시오. 소수점 제거
+      let sumAge = students.reduce((x, y) => x + y[3], 0);
+      console.log(Math.floor(sumAge / students.length));
+      // 5. 영어점수가 가장 높은 학생부터 학생이름과 영어점수를 출력하시오.
+      // 출력예)
+      //  1 김진사 90
+      //  2 홍길동 70
+      //  3 변사또 60
+      //  4 사임당 50
+      //  *힌트 : push()함수 - 배열에 요소를 추가해주는 함수
+      let sortedEngScore = students.toSorted((a, b) => b[2] - a[2]);
+      console.table(sortedEngScore);
+    </script>
+  </head>
+  <body></body>
+</html>

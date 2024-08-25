@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>연산자 연습문제</title>
+    <script>
+      // 1. 비교연산자 : > < == != <= >=
+      //    1) 20은 30보다 작은지 true/false 출력하시오.
+      console.log(20 < 30);
+
+      //    2) 20은 30보다 작거나 같은지
+      console.log(20 <= 30);
+
+      // 2. 논리연산자 : AND(&&) OR(||) NOT(!)
+      //    1) 10은 20보다 작으면서(~이고), 10은 5보다 큰가?
+      10 < 20 && 10 > 5;
+
+      //    2) 123의 일의 자릿수는 3인가?
+      123 % 10 == 3;
+
+      //    3) 5는 1보다 크거나 10보다 작은가?
+      5 >= 1 || 5 < 10;
+
+      // 3. 논리연산자(&& || !)를 이용하여 결과가 false가 되도록 하시오.
+      console.log((!true && false) || false || true);
+
+      // 4. 연산자 우선순위를 소괄호로 조정하여 11이 출력되도록 하시오.
+      console.log((10 - (4 / 2 + 4)) * 2);
+
+      // 5. prompt함수로 백의자리, 십의자리, 일의자리 숫자 3개를 입력받고
+      // 그 숫자를 조합하여 출력하시오.
+      // ex) 3입력 2입력 1입력 => 321 출력됨.
+
+      // 비동기 안 돔
+      const array = Array(3);
+
+      function getData() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            const input = prompt("숫자 입력");
+            resolve(Number(input));
+          }, 500);
+        });
+      }
+      async function myWork() {
+        // 비동기적으로 사용자 입력을 받아 배열을 채우기
+        const filledArray = await array.map(async () => {
+          return await getData();
+        });
+
+        // 배열을 역순으로 정렬
+        filledArray.reverse();
+
+        // 결과를 콘솔에 출력
+        console.log(filledArray.join());
+      }
+      myWork();
+    </script>
+  </head>
+  <body></body>
+</html>

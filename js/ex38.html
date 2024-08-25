@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>map 함수</title>
+    <script>
+      let arr = [10, 20, 30, 40, 50];
+
+      arr.forEach((value, index, array) => {
+        console.log(value);
+        console.log(index);
+        console.log(array);
+      });
+
+      let arrMap = arr.map((item, index) => item * index);
+      console.log(arrMap);
+
+      let sqrt = arr.map(Math.sqrt);
+      console.log(sqrt);
+
+      // 객체배열에서 이름만 가져와서 문자열 1차배열로 만들기
+      let students = [
+        { id: 1, name: "hong" },
+        { id: 2, name: "lee" },
+        { id: 3, name: "jung" },
+        { id: 4, name: "kim" },
+      ];
+
+      let names = students.map((x) => x["name"]); // x.name
+      console.log(...names);
+    </script>
+  </head>
+  <body></body>
+</html>

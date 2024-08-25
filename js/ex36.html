@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>키-벨류 객체</title>
+    <script>
+      // Key-Value Object = 객체
+      // Key는 문자열, 숫자, 심볼
+      // value는 다양한 타입(number, string, object, func)
+      // map, dictionary( key : value ), JSON/XML
+      // 프론트엔드(html/css/js, react.js) <=> HTTP(JSON) <=> 백엔드(node.js)
+      const obj = {
+        "123!": "string key", // 프리티어가 자꾸 "123" 안되게 지움,,
+        123: "numeric key as string",
+        [Symbol("sym")]: "symbol key",
+      };
+
+      console.log(obj["123!"]); // 출력: string key
+      console.log(obj[123]); // 출력: numeric key as string
+      console.log(obj[Symbol("sym")]); // undefined (다른 심볼 인스턴스라서)
+
+      let person = {
+        name: "홍길동",
+        action: () => {
+          console.log("야호~");
+        },
+      };
+      console.log(person.name);
+      person.action();
+
+      //연습문제
+      // student KV객체를 선언하고,
+      // 이 학생의 국어, 영어, 수학 성적을 각각 70, 80,90으로 설정하고,
+      // 합산과 평균을 내는 익명함수를 각각 sum, avr로 설정하고,
+      // 익명함수를 통해, sum과 avr값을 출력하시오.
+      // 그리고 국어,영어,수학 점수도 각각 출력하시오.
+      let student = {
+        kor: 70,
+        eng: 80,
+        math: 90,
+        sum() {
+          return this.kor + this.eng + this.math;
+        },
+        avg() {
+          return this.sum() / 3;
+        },
+        print() {
+          console.log(
+            `국어성적: ${this.kor}, 영어성적: ${this.eng}, 수학성적:${this.math}`
+          );
+        },
+      };
+      console.log(student.sum());
+      console.log(student.avg());
+      student.print();
+    </script>
+  </head>
+  <body></body>
+</html>
